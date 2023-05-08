@@ -11,6 +11,7 @@
     --logo-color: #2E2F42;
     --filters-button: #e7e9fc;
     --icon-color: #8E8F99;
+    --text-color: #f4f4fd;
 
     /* ANIMATION */
 
@@ -168,7 +169,7 @@ address {
     display: block;
 
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
 
     width: 100%;
@@ -283,7 +284,7 @@ address {
     padding: 16px 32px;
     margin: 0 auto;
 
-    transition: color var(--anim), background-color var(--anim);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* SECTIONS */
@@ -456,7 +457,8 @@ address {
     border: 1px solid #8E8F99;
     color: var(--icon-color);
 
-    transition: color var(--anim), border var(--anim);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-link:hover,
@@ -574,7 +576,10 @@ address {
     color: var(--first-logo-color);
     border: 1px solid var(--filters-button);
 
-    transition: border var(--anim), box-shadow var(--anim);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filters-button:hover,
@@ -622,10 +627,6 @@ address {
     width: calc((100% - 48px) / 3);
 }
 
-.portfolio-item:hover .overlay {
-    transform: translateY(0%);
-}
-
 /* PORTFOLIO THUMB */
 
 .portfolio-thumb {
@@ -639,22 +640,34 @@ address {
     position: absolute;
     top: 0;
     left: 0;
-    transform: translateY(100%);
-    transition: transform var(--anim);
+    /* transform: translateY(100%);
+    transition: transform var(--anim); */
 
     width: 100%;
     height: 100%;
-
-    background-color: #4D5AE5;
 }
 
 .overlay-text {
-    padding-top: 40px;
-    padding-bottom: 164px;
-    padding-left: 32px;
-    padding-right: 32px;
+    position: absolute;
+    top: 0;
 
-    color: #F4F4FD;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
+
+    color: var(--text-color);
+    background-color: #4d5ae5;
+}
+
+.portfolio-link:hover .overlay-text {
+    transform: translateY(0%);
 }
 
 .portfolio-link {
@@ -738,15 +751,17 @@ address {
 
 .modal {
     position: absolute;
-    top: calc(51%);
+    top: calc(50%);
     left: calc(50%);
-    transform: translateX(-50%) translateY(-70%);
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     width: 408px;
-    height: 584px;
+    min-height: 576px;
     border-radius: 4px;
 
     background-color: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .backdrop.is-hidden .modal {
@@ -771,11 +786,15 @@ address {
     background-color: #E7E9FC;
     border: 1px solid rgba(0, 0, 0, 0.1);
 
-    transition: background-color var(--anim);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close-btn:active {
+.modal-close-btn:hover,
+.modal-close-btn:focus {
     background-color: #404BBF;
+    border: none;
+
+    fill: #FFFFFF;
 }
 
 .modal-close-icon {
@@ -784,6 +803,7 @@ address {
     transition: fill var(--anim);
 }
 
-.modal-close-icon:active {
+.modal-close-btn:hover .modal-close-icon,
+.modal-close-btn:focus .modal-close-icon {
     fill: #FFFFFF;
 }
