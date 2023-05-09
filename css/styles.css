@@ -165,7 +165,7 @@ address {
     color: #404BBF;
 }
 
-.main-menu-link::after {
+.main-menu-link.active::after {
     content: '';
     display: block;
 
@@ -629,11 +629,6 @@ address {
 }
 
 /* OVERLAY */
-
-.overlay {
-    width: 100%;
-    height: 100%;
-}
 
 .overlay-text {
     position: absolute;
