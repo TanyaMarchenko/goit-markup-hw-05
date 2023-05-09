@@ -161,7 +161,8 @@ address {
     color: #404BBF;
 }
 
-.main-menu-link.active::after {
+.main-menu-link.active::after,
+.main-menu-link.portfolio-active::after {
     content: '';
     display: block;
 
@@ -176,7 +177,8 @@ address {
     background-color: #404BBF;
 }
 
-.main-menu-link.active {
+.main-menu-link.active,
+.main-menu-link.portfolio-active {
     color: #404BBF;
 }
 
