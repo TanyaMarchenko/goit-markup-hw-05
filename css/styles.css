@@ -168,7 +168,7 @@ address {
     padding-top: 24px;
     padding-bottom: 24px;
 
-    color: var(--logo-color);
+    color: #404bbf;
 }
 
 .main-menu-link.active {
@@ -186,6 +186,8 @@ address {
     border-radius: 2px;
 
     display: block;
+
+    background-color: #404bbf;
 }
 
 .main-menu-link.active::after {
