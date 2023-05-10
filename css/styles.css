@@ -113,13 +113,13 @@ address {
     z-index: var(--header-idx);
 }
 
-.header-portfolio {
+/* .header-portfolio {
     position: fixed;
     top: 0;
     width: 100%;
 
     background-color: #FFFFFF;
-}
+} */
 
 .header-container {
     align-items: center;
